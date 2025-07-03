@@ -1,0 +1,12 @@
+.closeBtn {
+  margin-left: auto;
+  display: block;
+  padding: 0;
+  background-color: transparent;
+}
+
+.modal {
+  padding: 8px;
+  width: 560px;
+  height: auto;
+}

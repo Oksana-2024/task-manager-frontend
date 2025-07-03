@@ -1,0 +1,17 @@
+.checkmark {
+  margin-left: auto;
+}
+
+.checkIcon {
+  fill: var(--green);
+}
+
+.circleIcon {
+  fill: var(--red);
+}
+
+.wrapperBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

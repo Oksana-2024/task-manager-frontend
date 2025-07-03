@@ -1,6 +1,12 @@
+@import "modern-normalize/modern-normalize.css";
 :root {
   --main-font: "Roboto", sans-serif;
+  --white: #fff;
   --black: #000;
+  --green: #247b24;
+  --red: #af351b;
+  --border: #cccccc;
+  --bg: var(--border);
 }
 
 @font-face {
@@ -54,3 +60,15 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+input,
+textarea {
+  outline: none;
+  font-family: var(--main-font);
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+

@@ -1,0 +1,16 @@
+.home {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  position: relative;
+}
+
+.todoBtn {
+  border-radius: 4px;
+  margin: 0 auto 16px auto;
+  width: 35%;
+  display: block;
+  color: var(--white);
+  background-color: var(--green);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}

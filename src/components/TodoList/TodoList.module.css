@@ -1,0 +1,16 @@
+.todoList {
+  display: grid;
+
+  gap: 8px 24px;
+  margin-top: 8px;
+  grid-template-columns: repeat(3, calc((100% - 48px) / 3));
+}
+
+.todoItem {
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  padding: 8px;
+  flex-direction: column;
+  display: flex;
+  gap: 8px;
+}
