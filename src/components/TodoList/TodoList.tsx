@@ -49,6 +49,11 @@ const TodoList = ({
     getTodos();
   };
 
+  const handleModalClose = () => {
+    setModal(false);
+    setCurrentTodo(null);
+  };
+
   useEffect(() => {
     getTodos();
   }, [status]);
@@ -73,9 +78,9 @@ const TodoList = ({
           </li>
         ))}
       </ul>
-      <ModalWindow closeModal={() => setModal(false)} modalIsOpen={modal}>
+      <ModalWindow closeModal={handleModalClose} modalIsOpen={modal}>
         <TodoForm
-          onClose={() => setModal(false)}
+          onClose={handleModalClose}
           onCreate={handleUpdate}
           onUpdate={handleUpdate}
           currentTodo={currentTodo!}
