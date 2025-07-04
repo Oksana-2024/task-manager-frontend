@@ -7,6 +7,8 @@
   --red: #af351b;
   --border: #cccccc;
   --bg: var(--border);
+  --bg-loader: rgba(255, 255, 255, 0.7);
+  --loader: #333;
 }
 
 @font-face {
@@ -70,5 +72,3 @@ textarea {
 .no-scroll {
   overflow: hidden;
 }
-
-

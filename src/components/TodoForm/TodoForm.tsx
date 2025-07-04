@@ -7,6 +7,7 @@ import s from "./TodoForm.module.css";
 import { createAxios } from "../../helpers/axios";
 import type { ITodo } from "../../types/todoTypes.mts";
 import { useState } from "react";
+import { OverlayLoader } from "../OverlayLoader/OverlayLoader";
 const TodoForm = ({
   currentTodo,
   onCreate,
@@ -29,7 +30,7 @@ const TodoForm = ({
     onUpdate();
   };
   return (
-    <>
+    <OverlayLoader isLoading={isLoading}>
       <Formik
         onSubmit={async (values, actions) => {
           try {
@@ -96,7 +97,7 @@ const TodoForm = ({
           </div>
         </Form>
       </Formik>
-    </>
+    </OverlayLoader>
   );
 };
 

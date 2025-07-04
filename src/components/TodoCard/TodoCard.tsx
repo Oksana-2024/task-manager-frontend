@@ -6,6 +6,8 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import BaseButton from "../BaseButton/BaseButton";
 import { MdCheckBox, MdCheckBoxOutlineBlank } from "react-icons/md";
 import s from "./Todocard.module.css";
+import { useState } from "react";
+import { OverlayLoader } from "../OverlayLoader/OverlayLoader";
 
 const TodoCard = ({
   title,
@@ -16,34 +18,41 @@ const TodoCard = ({
   onEdit,
   onToggle,
 }: ITodo & {
-  onDelete: () => void;
+  onDelete: () => Promise<void>;
   onEdit: () => void;
-  onToggle: () => void;
+  onToggle: () => Promise<void>;
 }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const handleDelete = async () => {
     try {
+      setIsLoading(true);
       await createAxios().delete(`/todo/${_id}`);
-      onDelete();
+      await onDelete();
     } catch (err) {
       console.error(err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleToggle = async () => {
     try {
+      setIsLoading(true);
       await createAxios().patch(`/todo/${_id}`, {
         title,
         description,
         isCompleted: !isCompleted,
       });
-      onToggle();
+      await onToggle();
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <>
+    <OverlayLoader isLoading={isLoading}>
       <BaseButton className={s.checkmark} onClick={handleToggle}>
         {isCompleted ? (
           <MdCheckBox className={s.checkIcon} size={24} />
@@ -61,7 +70,7 @@ const TodoCard = ({
           <RiDeleteBinLine size={24} />
         </BaseButton>
       </div>
-    </>
+    </OverlayLoader>
   );
 };
 
